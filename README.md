@@ -94,6 +94,12 @@ Default value: `event.json`
 
 Name of the .json file containing your test event relative to your Gruntfile.
 
+##### options.env_variables
+Type: `Object`
+Default value: `null`
+
+A object that will be added as environment variables (process.env) when running task.
+
 #### Usage Examples
 
 ##### Default Options
@@ -293,7 +299,7 @@ Default value: None - Required (if you havn't specified an ARN)
 
 ##### Proxy
 On Linux based hosts you can set proxy server for deploy task by specifying standard environment variable - https_proxy.
-E.g: 
+E.g:
 env https_proxy=http://localhost:8080 grunt deploy
 
 ##### package
