@@ -167,10 +167,11 @@ deployTask.getHandler = function (grunt) {
                 var deferred = Q.defer();
                 if (Object.keys(func_options).length > 0) {
                     func_options.FunctionName = func_name;
+                    grunt.log.writeln('Config: ' + JSON.stringify(func_options, null, 2));
                     lambda.updateFunctionConfiguration(func_options, function (err, data) {
                         if (err) {
                             grunt.fail.warn('Could not update config, check that values and permissions are valid');
-                            grunt.log.writeln('Config: ' + func_options);
+                            grunt.log.error('Config: ' + JSON.stringify(func_options, null, 2));
                             deferred.reject();
                         } else {
                             grunt.log.writeln('Config updated.');
