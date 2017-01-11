@@ -170,8 +170,8 @@ deployTask.getHandler = function (grunt) {
                     grunt.log.writeln('Config: ' + JSON.stringify(func_options, null, 2));
                     lambda.updateFunctionConfiguration(func_options, function (err, data) {
                         if (err) {
+                            grunt.log.error('Error updating config: ' + JSON.stringify(err, null, 2));
                             grunt.fail.warn('Could not update config, check that values and permissions are valid');
-                            grunt.log.error('Config: ' + JSON.stringify(func_options, null, 2));
                             deferred.reject();
                         } else {
                             grunt.log.writeln('Config updated.');
