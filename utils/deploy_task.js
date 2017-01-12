@@ -161,6 +161,12 @@ deployTask.getHandler = function (grunt) {
                  SubnetIds : options.subnetIds,
                  SecurityGroupIds : options.securityGroupIds
                };
+            } else {
+              // N.B. Populate with empty arrays to workaround bug: https://forums.aws.amazon.com/thread.jspa?threadID=246719
+              configParams.VpcConfig = {
+                SubnetIds: [],
+                SecurityGroupIds: []
+              };
             }
 
             var updateConfig = function (func_name, func_options) {
